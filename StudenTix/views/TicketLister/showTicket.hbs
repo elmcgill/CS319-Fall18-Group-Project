@@ -1,0 +1,83 @@
+<!-- This is where you guys will style the tickets that you
+get from a function that is called in TicketController
+ -->
+
+<head>
+  <script type="javascript">
+    function tryDelete{if({{ user.username }} != this.owner)
+      display(){
+          alert("You are not allowed to delete this ticket!");
+      }
+      else{
+        deleteTicket();
+      }
+    }
+      </script>
+  <style>
+    #container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: auto;
+      grid-gap: 1em;
+      margin: 1em;
+    }
+
+    .card {
+      /* Add shadows to create the "card" effect */
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* On mouse-over, add a deeper shadow */
+    .card:hover {
+      box-shadow: 0 8px 16px 0 #00b7ff;
+    }
+
+    /* Add some padding inside the card container */
+    .container {
+      padding: 2px 16px;
+    }
+
+    .text {
+      color: #00b7ff;
+    }
+
+    .title {
+      align-items: center;
+      font-weight: bold;
+      font-size: 20px;
+
+    }
+
+    #buy {
+      background-color: #00b7ff;
+      margin: 1em;
+    }
+  </style>
+
+</head>
+<div class="row align-items-center justify-content-center">
+  <h1>{{ title }}</h1>
+</div>
+<div id="container">
+  {{#each game}}
+    <div class="card">
+      <span class="title">{{ this.ticketGame }}</span>
+      <label>Price:</label>
+      <span class="text">{{ this.price }}</span>
+      <label>Start:</label>
+      <span class="text">{{ this.ticketStart }}</span>
+      <label>Location:</label>
+      <span class="text">{{ this.gameLocation }}</span>
+      <label>Seat Number:</label>
+      <span class="text">{{ this.seatNumber }}</span>
+      <label>Section:</label>
+      <span class="text">{{ this.section }}</span>
+      <button id="buy" class="btn btn-info"><a href="/buyTicket" style="color:white;"> Buy this ticket</a></button>
+      <button id="delete" class="btn btn-delete" onclick="tryDelete()">> Delete this ticket</a></button>
+    </div>
+  {{/each}}
+</div>

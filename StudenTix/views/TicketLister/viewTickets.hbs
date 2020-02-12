@@ -1,0 +1,38 @@
+<!-- This is where you guys will style the tickets that you
+get from a function that is called in TicketController
+ -->
+ <head>
+     <script type="javascript">
+        display(){
+            alert(this.price + this.ticketGame);
+        }
+        </script>
+
+     <style>
+     #ticketList {
+         list-style-type: none;
+         border: 1px solid blue;
+         border-radius: 25px;
+         padding: 1em;
+         margin-top: 5px;
+         margin-bottom: 5px;
+     }
+     #ticketList:hover {
+         background-color: lightblue;
+         color: black;
+         cursor: pointer;
+     }
+   </style>
+
+</head>
+ <div class="row align-items-center justify-content-center">
+     <h1>{{ title }}</h1>
+ </div>
+
+<div class="container index-container text-center">
+  {{#each game}}
+    <li id="ticketList">
+        <a id = "ticket" >{{this.ticketGame}} {{this.price}}</a>
+    </li>
+  {{/each}}
+  <a href="/showTicket"> View Details </a>
