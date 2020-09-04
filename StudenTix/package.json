@@ -50,7 +50,7 @@
         "extract-text-webpack-plugin": "next",
         "file-loader": "^1.1.11",
         "mocha": "^5.2.0",
-        "node-sass": "^4.9.2",
+        "node-sass": "^4.13.1",
         "postcss-loader": "^2.1.6",
         "prettier": "^1.13.7",
         "sass-loader": "^7.0.3",
